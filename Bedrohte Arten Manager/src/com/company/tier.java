@@ -1,7 +1,7 @@
 package com.company;
 
 public class tier {
-
+    //Variablen
     private int anzahl;
     private String populationsstatus;
     private String art;
@@ -9,13 +9,14 @@ public class tier {
 
 
 
-
+    //Konstruktor
     public tier(int anzahl, String populationsstatus, String art, int alter) {
         this.anzahl = anzahl;
         this.populationsstatus = populationsstatus;
         this.art = art;
         this.alter = alter;
     }
+    //Getter
     public int getAlter() {
         return alter;
     }

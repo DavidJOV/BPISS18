@@ -8,17 +8,17 @@ public class Main {
 
 
     public static void main(String[] args) {
-
+        //Liste von  Kartierern
         ArrayList<kartierer> listOfKartierer = new ArrayList<kartierer>();
-
+        // Scanner für User Input
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Hallo und wilkommen zum artenschutz Programm der TH Köln!");
-        while (true) {
-            if (checkkartiererCounter() == false) {
+        while (true) {                                              //
+            if (checkkartiererCounter() == false) {  // Wenn der Counter = 0 ist muss er erst ein Kartierer erstellt werden.
                 System.out.println("Ups! Wir haben noch keinen ArtenKartierer! \n" +
                         "Um weiter zu machen müssen wir erst einen erstellen.");
-
+                 //Anlegen des ersten Kartierer
                 System.out.println("Bitte geben Sie den Vorname ein:");
                 String vname = scanner.next();
                 System.out.println("Bitte geben Sie den Nachnamen ein:");
@@ -30,9 +30,11 @@ public class Main {
 
                 kartiererCounter++;
             }
+            // Auswahl des Kartierer oder neuen Kartierer anlegen
             System.out.println("Bitte Wählen Sie 1 oder 2");
             System.out.println("Mit 1 arbeiten Sie, mit den uns bereits bekannten Kartierern \nMit 2 erstellen Sie einen neuen Kartierer");
             String abfrage = scanner.next();
+            // Anzeigen aller vorhandenen Kartierer
             if (abfrage.equals("1")) {
                 System.out.println("Mit welchem Kartierer möchten sie Arbeiten? \n" +
                         "Wir haben bereits Folgende Kartierer: ");
@@ -41,7 +43,7 @@ public class Main {
 
                 }
 
-
+                //Auswahl des gewünschten Kartierer über eingabe des Vor- und Nachnamen
                 System.out.println("Geben Sie den Vornamen des Kartierers ein");
                 String vname = scanner.next();
                 System.out.println("Geben Sie den Nachnamen des Kartierers ein");
@@ -56,7 +58,7 @@ public class Main {
 
                         System.out.println("Mit 2 können Sie dem Kartierer: " + k.getVorname() + " " + k.getName() + " eine neue Tierart hinzufügen.");
                         String eingabe = scanner.next();
-
+                        // Anzeigen aller Tiere des gewählten Kartierer
                         if (eingabe.equals("1")) {
                             if (k.getListOfTiere().size() >0) {
                             for (tier t : k.getListOfTiere()) {
@@ -69,6 +71,7 @@ public class Main {
                                 System.out.println("Ups! dieser Kartierer hat noch keine Tiere!");
                             }
                         }
+                        // Anlegen eines Tieres für den gewählten Kartierer - Wahl zwischen Bieber oder Wildkatze
                        else if (eingabe.equals("2")) {
                             System.out.println("Wählen Sie 1 für Bieber oder 2 für Wildkatze");
                             eingabe = scanner.next();
@@ -120,7 +123,7 @@ public class Main {
                     }
                 }
 
-
+                // Anlegen eines neuen Kartierer
             } else if (abfrage.equals("2")) {
 
                 System.out.println("Geben Sie den Vornamen des Kartierers ein");
@@ -136,7 +139,7 @@ public class Main {
             }
         }
     }
-
+ // Helper zum überprüfen ob es schon Kartierer gibt oder nicht.
     public static boolean checkkartiererCounter() {
 
         if (kartiererCounter > 0) return true;
